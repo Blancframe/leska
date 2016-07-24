@@ -6,9 +6,11 @@ import {
   Navigator,
   TouchableHighlight
 } from 'react-native';
+import Carousel from './Carousel';
 import Tinder from './Tinder';
 
 const ROUTES = {
+    splashscreen: Carousel,
     tinder: Tinder
 }
 
@@ -27,7 +29,7 @@ export default class Leska extends Component {
             <Navigator
                 style={styles.container}
                 configureScene={this.configureScene}
-                initialRoute={{name: 'tinder'}}
+                initialRoute={{name: 'splashscreen'}}
                 renderScene={this.renderScene}
               />
         );
