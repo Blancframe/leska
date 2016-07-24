@@ -3,7 +3,8 @@ import {
   StyleSheet,
   Text,
   View,
-  Image
+  Image,
+  StatusBar
 } from 'react-native';
 import SwipeCards from './components/SwipeCards';
 
@@ -12,8 +13,11 @@ let Card = React.createClass({
   render() {
     return (
       <View style={styles.card}>
+        <StatusBar
+            barStyle="light-content"
+        />
         <Image style={styles.thumbnail} source={{uri: this.props.image}} />
-        <Text style={styles.text}>This is card {this.props.name}</Text>
+        <Text style={styles.text}>Naam: {this.props.name}</Text>
       </View>
     )
   }
@@ -113,7 +117,7 @@ const styles = StyleSheet.create({
   thumbnail: {
     flex: 1,
     width: 300,
-    height: 300,
+    height: 400,
   },
   text: {
     fontSize: 20,
