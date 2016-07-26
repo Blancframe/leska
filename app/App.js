@@ -20,15 +20,14 @@ export default class Leska extends Component {
         return <Component navigator={navigator} {...route.passProps} />
     }
 
-    configureScene(route, routeStack) {
-        return Navigator.SceneConfigs.HorizontalSwipeJump
-    }
-
     render() {
         return (
             <Navigator
                 style={styles.container}
-                configureScene={this.configureScene}
+                configureScene={(route) => ({
+                    ...route.sceneConfig || Navigator.SceneConfigs.HorizontalSwipeJump,
+                    gestures: route.gestures
+                })}
                 initialRoute={{name: 'splashscreen'}}
                 renderScene={this.renderScene}
               />

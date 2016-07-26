@@ -25,7 +25,10 @@ export default React.createClass({
   },
 
   onChannelPress(url) {
-    this.props.navigator.push({name: 'tinder'});
+    this.props.navigator.push({
+        name: 'tinder',
+        gestures: {}
+    });
   },
 
   render: function() {

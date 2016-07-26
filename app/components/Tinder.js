@@ -8,6 +8,7 @@ import {
   TouchableHighlight
 } from 'react-native';
 import SwipeCards from './SwipeCards';
+// import Modal from './Modal';
 import NavigationBar from 'react-native-navbar';
 
 
@@ -40,32 +41,35 @@ let NoMoreCards = React.createClass({
 const Cards = [
   {
       name: 'Anna',
-      description: `Hi Aksel, Ik wil de rekening van etentje wel met je delen ;-)`,
+      description: `Nothing yet....`,
       image: `https://s3-us-west-2.amazonaws.com/leska-app/anna.jpg`
   },
   {
       name: `Daniel`,
-      description: `Hi Aksel, Ik wil de rekening van etentje wel met je delen ;-)`,
+      description: `Who wants to be my Leska date? <3`,
       image: `https://s3-us-west-2.amazonaws.com/leska-app/daniel.jpg`
   },
   {
       name: `Anne`,
-      description: `Hi Aksel, Ik wil de rekening van etentje wel met je delen ;-)`,
+      description: `Met wie moet ik nu serieuze gesprekken in skiliften hebben?`,
       image: `https://s3-us-west-2.amazonaws.com/leska-app/anne.jpg`
   },
   {
       name: `Sezayi`,
-      description: `Hi Aksel, Ik wil de rekening van etentje wel met je delen ;-)`,
+      description: `Nothing yet....`,
       image: `https://s3-us-west-2.amazonaws.com/leska-app/sezayi.jpg`
   },
   {
       name: `Astrid`,
-      description: `Hi Aksel, Ik wil de rekening van etentje wel met je delen ;-)`,
+      description: `Nothing yet....`,
       image: `https://s3-us-west-2.amazonaws.com/leska-app/astrid.jpg`
   },
   {
       name: `Malou`,
-      description: `Hi Aksel, Ik wil de rekening van etentje wel met je delen ;-)`,
+      description: `Hi Aks, ik wens je mega veel succes met je volgende uitdagingen, ga je missen!
+        Nog een cheesy quote om in je kelder over na te denken ;-)
+        "Don't think too much, you'll think your whole life away.
+        Just stop, close your eyes, and follow your heart. I guarantee you, it knows the way." x Malou`,
       image: `https://s3-us-west-2.amazonaws.com/leska-app/malou.jpg`
   },
   {
@@ -80,11 +84,11 @@ const Cards = [
         All joking aside, het was geweldig om samen met je te werken en op sneeuwvakantie te gaan en te borrelen.
         Succes met de Kemna opleiding, het freelancen en alle andere creatieve dingen die je gaat ondernemen!
         If there were to be a universal sound depicting peace, I would surely vote for the purr.`,
-      image: `https://s3-us-west-2.amazonaws.com/leska-app/malou.jpg`
+      image: `https://s3-us-west-2.amazonaws.com/leska-app/diwy.jpg`
   },
   {
       name: `Malou`,
-      description: `Hi Aksel, Ik wil de rekening van etentje wel met je delen ;-)`,
+      description: `Nothing yet....sdds`,
       image: `https://s3-us-west-2.amazonaws.com/leska-app/malou.jpg`
   },
 ]
@@ -173,7 +177,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     borderRadius: 5,
     overflow: 'hidden',
-    borderColor: 'grey',
+    borderColor: '#eee',
     backgroundColor: 'white',
     borderWidth: 1,
     elevation: 1,
