@@ -6,8 +6,8 @@ import {
   Navigator,
   TouchableHighlight
 } from 'react-native';
-import Carousel from './Carousel';
-import Tinder from './Tinder';
+import Carousel from './components/Carousel';
+import Tinder from './components/Tinder';
 
 const ROUTES = {
     splashscreen: Carousel,
@@ -40,7 +40,7 @@ const styles = StyleSheet.create({
     container: {
       flex: 1,
       flexDirection: 'row',
-      backgroundColor: '#1E1E1E',
+      backgroundColor: '#F7F7F7',
       paddingTop: 20,
     }
 });

@@ -7,7 +7,7 @@ import {
   TouchableHighlight,
   Image
 } from 'react-native';
-import Login from './components/Login';
+import Login from './Login';
 
 let Carousel = require('react-native-looped-carousel');
 let Dimensions = require('Dimensions');
@@ -30,13 +30,13 @@ export default React.createClass({
         <View style={{flex: 1}} onLayout={this._onLayoutDidChange}>
             <Carousel delay={8000} style={this.state.size}>
                 <View style={[this.state.size]}>
-                    <Image style={[this.state.size]} source={require('./images/aks_gitaar_les.jpg')} />
+                    <Image style={[this.state.size]} source={require('./../images/aks_gitaar_les.jpg')} />
                 </View>
                 <View style={[this.state.size]}>
-                    <Image style={[this.state.size]} source={require('./images/aks-gangster.jpg')} />
+                    <Image style={[this.state.size]} source={require('./../images/aks-gangster.jpg')} />
                 </View>
                 <View style={[this.state.size]}>
-                    <Image style={[this.state.size]} source={require('./images/aks_schoonzoon.jpg')} />
+                    <Image style={[this.state.size]} source={require('./../images/aks_schoonzoon.jpg')} />
                 </View>
             </Carousel>
             <Login navigator={this.props.navigator}/>

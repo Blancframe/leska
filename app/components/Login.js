@@ -26,7 +26,7 @@ export default React.createClass({
 
   onChannelPress(url) {
     this.props.navigator.push({name: 'tinder'});
-},
+  },
 
   render: function() {
     return (
@@ -114,7 +114,7 @@ const styles = StyleSheet.create({
         height: 150
     },
     signin: {
-        backgroundColor: '#FF3366',
+        backgroundColor: '#BF373B',// light pink: E3CCCD, pink: BF373B, off white: F7F7F7
         padding: 20,
         alignItems: 'center'
     },

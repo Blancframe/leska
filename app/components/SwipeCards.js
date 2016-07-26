@@ -260,7 +260,7 @@ export default class SwipeCards extends Component {
 
     if (this.props.showNope) {
       return <Animated.View style={[styles.nope, animatedNopeStyles]}>
-        <Text style={styles.nopeText}>{this.props.noText}</Text>
+        <Text style={styles.nopeText}>{this.props.nopeText}</Text>
       </Animated.View>;
     }
 
@@ -310,7 +310,7 @@ const styles = StyleSheet.create({
     borderWidth: 2,
     position: 'absolute',
     padding: 20,
-    bottom: 20,
+    top: 20,
     borderRadius: 5,
     right: 20,
   },
@@ -322,7 +322,7 @@ const styles = StyleSheet.create({
     borderColor: 'red',
     borderWidth: 2,
     position: 'absolute',
-    bottom: 20,
+    top: 20,
     padding: 20,
     borderRadius: 5,
     left: 20,
