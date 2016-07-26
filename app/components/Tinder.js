@@ -87,14 +87,21 @@ const Cards = [
       image: `https://s3-us-west-2.amazonaws.com/leska-app/diwy.jpg`
   },
   {
-      name: `Malou`,
+      name: `Sven`,
       description: `Nothing yet....sdds`,
-      image: `https://s3-us-west-2.amazonaws.com/leska-app/malou.jpg`
+      image: `https://s3-us-west-2.amazonaws.com/leska-app/sven.jpg`
   },
 ]
 
 const Cards2 = [
-  {name: '10', image: 'https://media.giphy.com/media/12b3E4U9aSndxC/giphy.gif'},
+  {
+      name: `Nguyen`,
+      description: `Open for one day dates till all year round relationship. <br>
+        Loves dates with: karaoke  -  disco roller skating & bowling and at a later stage: occasional snowboarding & surfing depending on season - traveling.
+        <br><br>
+        #bubbels #goodlife #luxurytravel #airplanes #weekendgetaways #2friendswithbenefits`,
+      image: `https://s3-us-west-2.amazonaws.com/leska-app/nguyen.jpg`
+  },
   {name: '11', image: 'https://media4.giphy.com/media/6csVEPEmHWhWg/200.gif'},
   {name: '12', image: 'https://media4.giphy.com/media/AA69fOAMCPa4o/200.gif'},
   {name: '13', image: 'https://media.giphy.com/media/OVHFny0I7njuU/giphy.gif'},
