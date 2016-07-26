@@ -13,6 +13,7 @@ import NavigationBar from 'react-native-navbar';
 
 
 let Card = React.createClass({
+
   showModal(info) {
   },
 
@@ -111,11 +112,14 @@ export default React.createClass({
     }
   },
   _postCardVerdict (card, verdict) {
+    let gif = verdict ? 'AKZoD2SprDuMg' : 'n1Sg0gNQMYbwQ';
+
     let data = {
-        "color": "blue",
-        "message_format": "html",
-        "message": `<p>Aksel says <b>%{ verdict }!</b> to ${ card.name }</p>`
-    }
+        notify: 'true',
+        color: verdict ? 'green' : 'red',
+        message_format: 'html',
+        message: `<p style='text-align: center'>Aksel to ${ card.name }...</p><img src=\'https://media.giphy.com/media/${ gif }/giphy.gif\' />`
+    };
     let url = `https://api.hipchat.com/v2/room/${ roomId }/notification?auth_token=${ apiToken }`
 
     fetch(url, {
@@ -125,13 +129,13 @@ export default React.createClass({
         'Content-Type': 'application/json',
       },
       body: JSON.stringify(data)
-    });
-  }
+    }).then(function(r) {console.log(r)});
+  },
   handleYup (card) {
-    this._postCardVerdict(card, 'yes');
+    this._postCardVerdict(card, true);
   },
   handleNope (card) {
-    this._postCardVerdict(card, 'no');
+    this._postCardVerdict(card, false);
   },
   cardRemoved (index) {
     console.log(`The index is ${index}`);
