@@ -33,12 +33,10 @@ export default React.createClass({
     render() {
         return (
             <View>
-                <Image
-                    style={styles.bgImage}
-                    source={require('./../images/road-sunny-day.jpg')}
-                />
                 <View style={styles.mainContainer}>
-                    <Text>Aksel</Text>
+                    <View style={styles.logoHolder}>
+                        <Image style={styles.logo} source={require('./../images/logo/hoofd.png')}></Image>
+                    </View>
                     <TouchableHighlight onPress={() => this.onStartPress()}>
                         <View style={styles.startdating}>
                                 <Text style={styles.whiteFont}>Start searching</Text>
@@ -65,10 +63,6 @@ const styles = StyleSheet.create({
         position: 'absolute',
         backgroundColor: 'rgba(30, 30, 30, 0.6)',
     },
-    bgImage: {
-        width: width,
-        height: height
-    },
     startdating: {
         backgroundColor: '#BF373B',// light pink: E3CCCD, pink: BF373B, off white: F7F7F7
         marginTop: 70,
@@ -78,5 +72,17 @@ const styles = StyleSheet.create({
     },
     whiteFont: {
       color: '#FFF'
-    }
+  },
+  logoHolder: {
+    width: 115,
+    height: 115,
+    borderRadius: 115,
+    borderWidth: 1,
+    borderColor: '#E3CCCD'
+  },
+  logo: {
+      marginLeft: 18,
+      width: 81,
+      height: 115,
+  }
 });

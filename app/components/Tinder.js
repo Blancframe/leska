@@ -42,17 +42,12 @@ const Cards = [
   {
       name: 'Anna',
       description: `Nothing yet....`,
-      image: require('../images/profiles/anne.jpg'),
+      image: require('../images/profiles/anna.jpg'),
   },
   {
       name: `Daniel`,
       description: `Who wants to be my Leska date? <3`,
       image: require('../images/profiles/daniel.jpg')
-  },
-  {
-      name: `Anne`,
-      description: `Met wie moet ik nu serieuze gesprekken in skiliften hebben?`,
-      image: require('../images/profiles/anne.jpg')
   },
   {
       name: `Sezayi`,
@@ -63,6 +58,12 @@ const Cards = [
       name: `Astrid`,
       description: `Nothing yet....`,
       image: require('../images/profiles/astrid.jpg')
+  },
+  {
+      name: `Anne`,
+      description: `Met wie moet ik nu serieuze gesprekken in skiliften hebben?`,
+      image: require('../images/profiles/anne.jpg'),
+      match: true
   },
   {
       name: `Malou`,
@@ -89,7 +90,8 @@ const Cards = [
   {
       name: `Sven`,
       description: `Nothing yet....sdds`,
-      image: require('../images/profiles/diwy.jpg')
+      image: require('../images/profiles/sven.jpg'),
+      match: true
   },
 ]
 
@@ -100,7 +102,7 @@ const Cards2 = [
         Loves dates with: karaoke  -  disco roller skating & bowling and at a later stage: occasional snowboarding & surfing depending on season - traveling.
         <br><br>
         #bubbels #goodlife #luxurytravel #airplanes #weekendgetaways #2friendswithbenefits`,
-      image:require('../images/profiles/diwy.jpg')
+      image:require('../images/profiles/nguyen.jpg')
   },
   {name: '11', image: 'https://media4.giphy.com/media/6csVEPEmHWhWg/200.gif'},
   {name: '12', image: 'https://media4.giphy.com/media/AA69fOAMCPa4o/200.gif'},
@@ -137,8 +139,14 @@ export default React.createClass({
       body: JSON.stringify(data)
     }).then(function(r) {console.log(r)});
   },
+  _isMatch (card) {
+      console.log(`${card}: is a match`);
+  },
   handleYup (card) {
     this._postCardVerdict(card, true);
+    if (card.match) {
+        this._isMatch(card);
+    }
   },
   handleNope (card) {
     this._postCardVerdict(card, false);
@@ -146,7 +154,7 @@ export default React.createClass({
   cardRemoved (index) {
     console.log(`The index is ${index}`);
 
-    let CARD_REFRESH_LIMIT = 3
+    let CARD_REFRESH_LIMIT = 23
 
     if (this.state.cards.length - index <= CARD_REFRESH_LIMIT + 1) {
       console.log(`There are only ${this.state.cards.length - index - 1} cards left.`);
@@ -165,7 +173,7 @@ export default React.createClass({
   },
   onBack(url) {
     this.props.navigator.pop();
-},
+  },
   render() {
     const rightButtonConfig = {
         title: 'back',
