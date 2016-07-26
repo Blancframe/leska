@@ -11,7 +11,6 @@ import SwipeCards from './SwipeCards';
 // import Modal from './Modal';
 import NavigationBar from 'react-native-navbar';
 
-
 let Card = React.createClass({
 
   showModal(info) {
@@ -21,7 +20,7 @@ let Card = React.createClass({
     return (
         <TouchableHighlight onPress={() => this.showModal(this.props)}>
           <View style={styles.card}>
-            <Image style={styles.thumbnail} source={{uri: this.props.image}} />
+            <Image style={styles.thumbnail} source={ this.props.image } />
             <Text style={styles.text}>{this.props.name}</Text>
           </View>
         </TouchableHighlight>
@@ -43,27 +42,27 @@ const Cards = [
   {
       name: 'Anna',
       description: `Nothing yet....`,
-      image: `https://s3-us-west-2.amazonaws.com/leska-app/anna.jpg`
+      image: require('../images/profiles/anne.jpg'),
   },
   {
       name: `Daniel`,
       description: `Who wants to be my Leska date? <3`,
-      image: `https://s3-us-west-2.amazonaws.com/leska-app/daniel.jpg`
+      image: require('../images/profiles/daniel.jpg')
   },
   {
       name: `Anne`,
       description: `Met wie moet ik nu serieuze gesprekken in skiliften hebben?`,
-      image: `https://s3-us-west-2.amazonaws.com/leska-app/anne.jpg`
+      image: require('../images/profiles/anne.jpg')
   },
   {
       name: `Sezayi`,
       description: `Nothing yet....`,
-      image: `https://s3-us-west-2.amazonaws.com/leska-app/sezayi.jpg`
+      image: require('../images/profiles/sezayi.jpg')
   },
   {
       name: `Astrid`,
       description: `Nothing yet....`,
-      image: `https://s3-us-west-2.amazonaws.com/leska-app/astrid.jpg`
+      image: require('../images/profiles/astrid.jpg')
   },
   {
       name: `Malou`,
@@ -71,12 +70,12 @@ const Cards = [
         Nog een cheesy quote om in je kelder over na te denken ;-)
         "Don't think too much, you'll think your whole life away.
         Just stop, close your eyes, and follow your heart. I guarantee you, it knows the way." x Malou`,
-      image: `https://s3-us-west-2.amazonaws.com/leska-app/malou.jpg`
+      image: require('../images/profiles/malou.jpg')
   },
   {
       name: `Bart`,
       description: `Hi Aksel, Ik wil de rekening van etentje wel met je delen ;-)`,
-      image: `https://s3-us-west-2.amazonaws.com/leska-app/bart.jpg`
+      image: require('../images/profiles/bart.jpg')
   },
   {
       name: `Diwy`,
@@ -85,12 +84,12 @@ const Cards = [
         All joking aside, het was geweldig om samen met je te werken en op sneeuwvakantie te gaan en te borrelen.
         Succes met de Kemna opleiding, het freelancen en alle andere creatieve dingen die je gaat ondernemen!
         If there were to be a universal sound depicting peace, I would surely vote for the purr.`,
-      image: `https://s3-us-west-2.amazonaws.com/leska-app/diwy.jpg`
+      image: require('../images/profiles/diwy.jpg')
   },
   {
       name: `Malou`,
       description: `Nothing yet....sdds`,
-      image: `https://s3-us-west-2.amazonaws.com/leska-app/malou.jpg`
+      image: require('../images/profiles/malou.jpg')
   },
 ]
 
@@ -102,7 +101,7 @@ const Cards2 = [
 ]
 
 const roomId = '2967829';
-const apiToken = 'MeJ3H7SFz8gVp4exDO8YOFsKlGzfFvpTHxm3smNH';
+const apiToken = '';//'MeJ3H7SFz8gVp4exDO8YOFsKlGzfFvpTHxm3smNH';
 
 export default React.createClass({
   getInitialState() {
@@ -122,7 +121,7 @@ export default React.createClass({
     };
     let url = `https://api.hipchat.com/v2/room/${ roomId }/notification?auth_token=${ apiToken }`
 
-    fetch(url, {
+    return fetch(url, {
       method: 'POST',
       headers: {
         'Accept': 'application/json',
