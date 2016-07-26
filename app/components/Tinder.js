@@ -100,6 +100,9 @@ const Cards2 = [
   {name: '13', image: 'https://media.giphy.com/media/OVHFny0I7njuU/giphy.gif'},
 ]
 
+const roomId = '2967829';
+const apiToken = 'MeJ3H7SFz8gVp4exDO8YOFsKlGzfFvpTHxm3smNH';
+
 export default React.createClass({
   getInitialState() {
     return {
@@ -107,11 +110,28 @@ export default React.createClass({
       outOfCards: false
     }
   },
+  _postCardVerdict (card, verdict) {
+    let data = {
+        "color": "blue",
+        "message_format": "html",
+        "message": `<p>Aksel says <b>%{ verdict }!</b> to ${ card.name }</p>`
+    }
+    let url = `https://api.hipchat.com/v2/room/${ roomId }/notification?auth_token=${ apiToken }`
+
+    fetch(url, {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(data)
+    });
+  }
   handleYup (card) {
-    console.log("yup")
+    this._postCardVerdict(card, 'yes');
   },
   handleNope (card) {
-    console.log("nope")
+    this._postCardVerdict(card, 'no');
   },
   cardRemoved (index) {
     console.log(`The index is ${index}`);
