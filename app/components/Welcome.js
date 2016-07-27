@@ -8,6 +8,7 @@ import {
   Image,
   TextInput
 } from 'react-native';
+import NavigationBar from 'react-native-navbar';
 import LinearGradient from 'react-native-linear-gradient';
 
 let Dimensions = require('Dimensions');
@@ -32,19 +33,30 @@ export default React.createClass({
     },
 
     render() {
+        const titleConfig = {
+            title: `Profile ${this.props.username}`,
+        };
+
         return (
             <View>
-            <LinearGradient
-                colors={['#fff', '#fff', '#f7f7f7']}
-                style={styles.linearGradient} />
-                <View style={styles.mainContainer}>
-                    <Image style={styles.logo} source={require('./../images/logo/hoofd.png')}></Image>
-                    <TouchableHighlight onPress={() => this.onStartPress()}>
-                        <View style={styles.startdating}>
-                                <Text style={styles.whiteFont}>Start searching</Text>
+                <NavigationBar
+                    style={styles.matchNav}
+                    title={titleConfig}/>
+                <LinearGradient
+                    colors={['#BF373B','#BF373B','#BF373B','#BF373B','#E3CCCD']}
+                    style={styles.linearGradient} />
+                    <View style={styles.mainContainer}>
+                        <View style={styles.logoHolder}>
+                            <Image style={styles.logo} source={require('./../images/logo/hoofd.png')}></Image>
                         </View>
-                    </TouchableHighlight>
-                </View>
+                        <Text style={styles.hobby}>22 years young, Great Actor @paramountpictures and @disney</Text>
+                        <Text style={styles.hobby}>Likes, Singing, playing guitar, '(╯°□°）╯︵ ┻━┻'</Text>
+                        <TouchableHighlight onPress={() => this.onStartPress()}>
+                            <View style={styles.startdating}>
+                                <Text style={styles.whiteFont}>Find your match</Text>
+                            </View>
+                        </TouchableHighlight>
+                    </View>
             </View>
         );
     }
@@ -56,10 +68,12 @@ const styles = StyleSheet.create({
         bottom: 0,
         left: 0,
         flex: 4,
-        justifyContent: 'center',
         alignItems: 'center',
+        justifyContent: 'center',
         paddingTop: 40,
         paddingBottom: 50,
+        paddingRight: 20,
+        paddingLeft: 20,
         width: width,
         height: height,
         position: 'absolute',
@@ -70,25 +84,38 @@ const styles = StyleSheet.create({
         height:height
     },
     startdating: {
-        backgroundColor: '#BF373B',// light pink: E3CCCD, pink: BF373B, off white: F7F7F7
+        backgroundColor: '#F7F7F7',// light pink: E3CCCD, pink: BF373B, off white: F7F7F7
         marginTop: 70,
         padding: 20,
         alignItems: 'center',
         width: width - 100
     },
     whiteFont: {
-      color: '#FFF',
-      fontSize: 20
-  },
-  logoHolder: {
-    width: 115,
-    height: 115,
-    borderRadius: 115,
-    borderWidth: 1,
-    borderColor: '#E3CCCD'
-  },
-  logo: {
-      width: 81,
-      height: 115,
-  }
+        color: '#BF373B',
+        fontSize: 20
+    },
+    logoHolder: {
+        width: 112,
+        height: 112,
+        borderRadius: 112,
+        borderWidth: 1,
+        borderColor: '#E3CCCD',
+        backgroundColor: '#F7F7F7',
+        marginBottom: 40
+    },
+    logo: {
+        width: 81,
+        height: 115,
+        marginLeft: 14
+    },
+    matchNav: {
+        borderBottomColor: '#f7f7f7',
+        borderBottomWidth: 1
+    },
+    hobby: {
+        color: '#FFF',
+        textAlign: 'center',
+        lineHeight: 26,
+        fontSize: 16
+    }
 });

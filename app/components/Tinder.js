@@ -9,7 +9,6 @@ import {
   Modal
 } from 'react-native';
 import SwipeCards from './SwipeCards';
-// import Modal from './Modal';
 import NavigationBar from 'react-native-navbar';
 import LinearGradient from 'react-native-linear-gradient';
 
