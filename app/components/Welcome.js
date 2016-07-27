@@ -8,6 +8,7 @@ import {
   Image,
   TextInput
 } from 'react-native';
+import LinearGradient from 'react-native-linear-gradient';
 
 let Dimensions = require('Dimensions');
 let {width, height} = Dimensions.get('window');
@@ -33,10 +34,11 @@ export default React.createClass({
     render() {
         return (
             <View>
+            <LinearGradient
+                colors={['#fff', '#fff', '#f7f7f7']}
+                style={styles.linearGradient} />
                 <View style={styles.mainContainer}>
-                    <View style={styles.logoHolder}>
-                        <Image style={styles.logo} source={require('./../images/logo/hoofd.png')}></Image>
-                    </View>
+                    <Image style={styles.logo} source={require('./../images/logo/hoofd.png')}></Image>
                     <TouchableHighlight onPress={() => this.onStartPress()}>
                         <View style={styles.startdating}>
                                 <Text style={styles.whiteFont}>Start searching</Text>
@@ -61,17 +63,22 @@ const styles = StyleSheet.create({
         width: width,
         height: height,
         position: 'absolute',
-        backgroundColor: 'rgba(30, 30, 30, 0.6)',
+        backgroundColor: 'transparent',
+    },
+    linearGradient: {
+        width: width,
+        height:height
     },
     startdating: {
         backgroundColor: '#BF373B',// light pink: E3CCCD, pink: BF373B, off white: F7F7F7
         marginTop: 70,
         padding: 20,
         alignItems: 'center',
-        width: width - 60
+        width: width - 100
     },
     whiteFont: {
-      color: '#FFF'
+      color: '#FFF',
+      fontSize: 20
   },
   logoHolder: {
     width: 115,
@@ -81,7 +88,6 @@ const styles = StyleSheet.create({
     borderColor: '#E3CCCD'
   },
   logo: {
-      marginLeft: 18,
       width: 81,
       height: 115,
   }
