@@ -5,28 +5,58 @@ import {
   View,
   Image,
   StatusBar,
-  TouchableHighlight
+  TouchableHighlight,
+  Modal
 } from 'react-native';
 import SwipeCards from './SwipeCards';
 // import Modal from './Modal';
 import NavigationBar from 'react-native-navbar';
+import LinearGradient from 'react-native-linear-gradient';
+
+let Dimensions = require('Dimensions');
+let {width, height} = Dimensions.get('window');
 
 let Card = React.createClass({
 
-  showModal(info) {
+  getInitialState() {
+    return {
+      modalVisible: false
+    }
   },
 
+  setModalVisible(visible) {
+      this.setState({modalVisible: visible});
+  },
   render() {
     return (
-        <TouchableHighlight onPress={() => this.showModal(this.props)}>
+        <TouchableHighlight onPress={() => {
+            this.setModalVisible(true)}}>
           <View style={styles.card}>
             <Image style={styles.thumbnail} source={ this.props.image } />
             <Text style={styles.text}>{this.props.name}</Text>
+
+            <Modal
+              animationType={"slide"}
+              transparent={true}
+              visible={this.state.modalVisible}>
+              <TouchableHighlight onPress={() => {
+                this.setModalVisible(!this.state.modalVisible)}}>
+                 <View style={styles.modalView}>
+                  <View style={styles.modalViewContent}>
+                    <View style={styles.profileHeader}>
+                        <Image style={styles.thumbnailModal} source={ this.props.image } />
+                        <Text style={styles.profileName}>{this.props.name},</Text>
+                        <Text style={styles.profileDescription}>{this.props.description}</Text>
+                    </View>
+                  </View>
+                 </View>
+             </TouchableHighlight>
+            </Modal>
           </View>
         </TouchableHighlight>
     )
   }
-})
+});
 
 let NoMoreCards = React.createClass({
   render() {
@@ -68,9 +98,11 @@ const Cards = [
   {
       name: `Malou`,
       description: `Hi Aks, ik wens je mega veel succes met je volgende uitdagingen, ga je missen!
-        Nog een cheesy quote om in je kelder over na te denken ;-)
-        "Don't think too much, you'll think your whole life away.
-        Just stop, close your eyes, and follow your heart. I guarantee you, it knows the way." x Malou`,
+Nog een cheesy quote om in je kelder over na te denken ;-)
+
+"Don't think too much, you'll think your whole life away. Just stop, close your eyes, and follow your heart. I guarantee you, it knows the way."
+
+x Malou`,
       image: require('../images/profiles/malou.jpg')
   },
   {
@@ -81,10 +113,12 @@ const Cards = [
   {
       name: `Diwy`,
       description: `Lieve Aksel,
-        Met jouw vertrek ben ik totaal onthand: wie gaat mij nu katten filmpjes, quotes, prullaria sturen?
-        All joking aside, het was geweldig om samen met je te werken en op sneeuwvakantie te gaan en te borrelen.
-        Succes met de Kemna opleiding, het freelancen en alle andere creatieve dingen die je gaat ondernemen!
-        If there were to be a universal sound depicting peace, I would surely vote for the purr.`,
+
+Met jouw vertrek ben ik totaal onthand: wie gaat mij nu katten filmpjes, quotes, prullaria sturen?
+All joking aside, het was geweldig om samen met je te werken en op sneeuwvakantie te gaan en te borrelen.
+
+Succes met de Kemna opleiding, het freelancen en alle andere creatieve dingen die je gaat ondernemen!
+If there were to be a universal sound depicting peace, I would surely vote for the purr.`,
       image: require('../images/profiles/diwy.jpg')
   },
   {
@@ -98,15 +132,13 @@ const Cards = [
 const Cards2 = [
   {
       name: `Nguyen`,
-      description: `Open for one day dates till all year round relationship. <br>
-        Loves dates with: karaoke  -  disco roller skating & bowling and at a later stage: occasional snowboarding & surfing depending on season - traveling.
-        <br><br>
-        #bubbels #goodlife #luxurytravel #airplanes #weekendgetaways #2friendswithbenefits`,
+      description: `Open for one day dates till all year round relationship.
+Loves dates with: karaoke  -  disco roller skating & bowling and at a later
+stage: occasional snowboarding & surfing depending on season - traveling.
+
+#bubbels #goodlife #luxurytravel #airplanes #weekendgetaways #2friendswithbenefits`,
       image:require('../images/profiles/nguyen.jpg')
-  },
-  {name: '11', image: 'https://media4.giphy.com/media/6csVEPEmHWhWg/200.gif'},
-  {name: '12', image: 'https://media4.giphy.com/media/AA69fOAMCPa4o/200.gif'},
-  {name: '13', image: 'https://media.giphy.com/media/OVHFny0I7njuU/giphy.gif'},
+  }
 ]
 
 const roomId = '2967829';
@@ -186,9 +218,13 @@ export default React.createClass({
 
     return (
         <View>
+            <LinearGradient
+                colors={['#fff', '#f7f7f7', '#fff']}
+                style={styles.linearGradient} />
             <NavigationBar
-            title={titleConfig}
-            leftButton={rightButtonConfig}/>
+                style={styles.matchNav}
+                title={titleConfig}
+                leftButton={rightButtonConfig}/>
             <SwipeCards
                 style={styles.cardStack}
                 cards={this.state.cards}
@@ -223,8 +259,8 @@ const styles = StyleSheet.create({
   },
   thumbnail: {
     flex: 1,
-    width: 300,
-    height: 400,
+    width: 330,
+    height: 370,
   },
   text: {
     fontSize: 20,
@@ -237,8 +273,47 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   matchNav: {
-      borderBottomColor: '#E3CCCD',
+      borderBottomColor: '#f7f7f7',
       borderBottomWidth: 1
+  },
+  modalView: {
+      paddingLeft: 20,
+      paddingRight: 20,
+      backgroundColor: 'rgba(255, 255, 255, 0.990)',
+      height: height
+  },
+  modalViewContent: {
+      flex: 1,
+      height: height,
+      paddingRight: 20,
+      paddingLeft: 20
+  },
+  closeModal: {
+      position: 'absolute',
+      top: 20,
+      left: 20
+  },
+  profileHeader: {
+      marginTop: 50,
+      flex: 1,
+      alignItems: 'center',
+  },
+  thumbnailModal: {
+      height: 100,
+      width: 100,
+      borderRadius: 50,
+      overflow: 'hidden'
+  },
+  profileName: {
+      fontSize: 20,
+      color: '#BF373B',
+      fontWeight: 'bold',
+      paddingTop: 20,
+  },
+  profileDescription: {
+    fontSize: 16,
+    color: '#444',
+    paddingTop: 20,
   }
 })
 // light pink: E3CCCD, pink: BF373B, off white: F7F7F7
