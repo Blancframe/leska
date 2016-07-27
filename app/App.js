@@ -39,9 +39,6 @@ export default class Leska extends Component {
 
 const styles = StyleSheet.create({
     container: {
-      flex: 1,
-      flexDirection: 'row',
-      backgroundColor: '#F7F7F7',
-      paddingTop: 20,
+      backgroundColor: '#FFF',
     }
 });

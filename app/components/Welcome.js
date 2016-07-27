@@ -50,7 +50,7 @@ export default React.createClass({
                             <Image style={styles.logo} source={require('./../images/logo/hoofd.png')}></Image>
                         </View>
                         <Text style={styles.hobby}>22 years young, Great Actor @paramountpictures and @disney</Text>
-                        <Text style={styles.hobby}>Likes, Singing, playing guitar, '(╯°□°）╯︵ ┻━┻'</Text>
+                        <Text style={styles.hobby}>Likes, Singing, playing guitar, and '(╯°□°）╯︵ ┻━┻'</Text>
                         <TouchableHighlight onPress={() => this.onStartPress()}>
                             <View style={styles.startdating}>
                                 <Text style={styles.whiteFont}>Find your match</Text>

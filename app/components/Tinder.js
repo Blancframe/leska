@@ -207,7 +207,7 @@ export default React.createClass({
   },
   render() {
     const rightButtonConfig = {
-        title: 'back',
+        title: 'Profile',
         handler: () =>  this.onBack(),
     };
 
@@ -227,7 +227,7 @@ export default React.createClass({
             <SwipeCards
                 style={styles.cardStack}
                 cards={this.state.cards}
-                loop={false}
+                loop={true}
 
                 renderCard={(cardData) => <Card {...cardData} />}
                 renderNoMoreCards={() => <NoMoreCards />}
@@ -247,14 +247,13 @@ export default React.createClass({
 
 const styles = StyleSheet.create({
   card: {
-    alignItems: 'center',
     borderRadius: 5,
     overflow: 'hidden',
-    borderColor: '#eee',
-    backgroundColor: 'white',
+    borderColor: '#E3CCCD',
     borderWidth: 1,
+    backgroundColor: '#f7f7f7',
     elevation: 1,
-    marginTop: 30
+    marginTop: 50
   },
   thumbnail: {
     flex: 1,
@@ -264,7 +263,9 @@ const styles = StyleSheet.create({
   text: {
     fontSize: 20,
     paddingTop: 10,
-    paddingBottom: 10
+    paddingBottom: 10,
+    marginLeft: 10,
+    color: '#BF373B'
   },
   noMoreCards: {
     flex: 1,
