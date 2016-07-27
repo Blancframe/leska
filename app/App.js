@@ -7,10 +7,12 @@ import {
   TouchableHighlight
 } from 'react-native';
 import Carousel from './components/Carousel';
+import Welcome from './components/Welcome';
 import Tinder from './components/Tinder';
 
 const ROUTES = {
     splashscreen: Carousel,
+    welcome: Welcome,
     tinder: Tinder
 }
 

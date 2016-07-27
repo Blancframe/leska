@@ -5,28 +5,58 @@ import {
   View,
   Image,
   StatusBar,
-  TouchableHighlight
+  TouchableHighlight,
+  Modal
 } from 'react-native';
 import SwipeCards from './SwipeCards';
 // import Modal from './Modal';
 import NavigationBar from 'react-native-navbar';
+import LinearGradient from 'react-native-linear-gradient';
+
+let Dimensions = require('Dimensions');
+let {width, height} = Dimensions.get('window');
 
 let Card = React.createClass({
 
-  showModal(info) {
+  getInitialState() {
+    return {
+      modalVisible: false
+    }
   },
 
+  setModalVisible(visible) {
+      this.setState({modalVisible: visible});
+  },
   render() {
     return (
-        <TouchableHighlight onPress={() => this.showModal(this.props)}>
+        <TouchableHighlight onPress={() => {
+            this.setModalVisible(true)}}>
           <View style={styles.card}>
             <Image style={styles.thumbnail} source={ this.props.image } />
             <Text style={styles.text}>{this.props.name}</Text>
+
+            <Modal
+              animationType={"slide"}
+              transparent={true}
+              visible={this.state.modalVisible}>
+              <TouchableHighlight onPress={() => {
+                this.setModalVisible(!this.state.modalVisible)}}>
+                 <View style={styles.modalView}>
+                  <View style={styles.modalViewContent}>
+                    <View style={styles.profileHeader}>
+                        <Image style={styles.thumbnailModal} source={ this.props.image } />
+                        <Text style={styles.profileName}>{this.props.name},</Text>
+                        <Text style={styles.profileDescription}>{this.props.description}</Text>
+                    </View>
+                  </View>
+                 </View>
+             </TouchableHighlight>
+            </Modal>
           </View>
         </TouchableHighlight>
     )
   }
-})
+});
 
 let NoMoreCards = React.createClass({
   render() {
@@ -42,17 +72,12 @@ const Cards = [
   {
       name: 'Anna',
       description: `Nothing yet....`,
-      image: require('../images/profiles/anne.jpg'),
+      image: require('../images/profiles/anna.jpg'),
   },
   {
       name: `Daniel`,
       description: `Who wants to be my Leska date? <3`,
       image: require('../images/profiles/daniel.jpg')
-  },
-  {
-      name: `Anne`,
-      description: `Met wie moet ik nu serieuze gesprekken in skiliften hebben?`,
-      image: require('../images/profiles/anne.jpg')
   },
   {
       name: `Sezayi`,
@@ -65,11 +90,19 @@ const Cards = [
       image: require('../images/profiles/astrid.jpg')
   },
   {
+      name: `Anne`,
+      description: `Met wie moet ik nu serieuze gesprekken in skiliften hebben?`,
+      image: require('../images/profiles/anne.jpg'),
+      match: true
+  },
+  {
       name: `Malou`,
       description: `Hi Aks, ik wens je mega veel succes met je volgende uitdagingen, ga je missen!
-        Nog een cheesy quote om in je kelder over na te denken ;-)
-        "Don't think too much, you'll think your whole life away.
-        Just stop, close your eyes, and follow your heart. I guarantee you, it knows the way." x Malou`,
+Nog een cheesy quote om in je kelder over na te denken ;-)
+
+"Don't think too much, you'll think your whole life away. Just stop, close your eyes, and follow your heart. I guarantee you, it knows the way."
+
+x Malou`,
       image: require('../images/profiles/malou.jpg')
   },
   {
@@ -80,24 +113,32 @@ const Cards = [
   {
       name: `Diwy`,
       description: `Lieve Aksel,
-        Met jouw vertrek ben ik totaal onthand: wie gaat mij nu katten filmpjes, quotes, prullaria sturen?
-        All joking aside, het was geweldig om samen met je te werken en op sneeuwvakantie te gaan en te borrelen.
-        Succes met de Kemna opleiding, het freelancen en alle andere creatieve dingen die je gaat ondernemen!
-        If there were to be a universal sound depicting peace, I would surely vote for the purr.`,
+
+Met jouw vertrek ben ik totaal onthand: wie gaat mij nu katten filmpjes, quotes, prullaria sturen?
+All joking aside, het was geweldig om samen met je te werken en op sneeuwvakantie te gaan en te borrelen.
+
+Succes met de Kemna opleiding, het freelancen en alle andere creatieve dingen die je gaat ondernemen!
+If there were to be a universal sound depicting peace, I would surely vote for the purr.`,
       image: require('../images/profiles/diwy.jpg')
   },
   {
-      name: `Malou`,
+      name: `Sven`,
       description: `Nothing yet....sdds`,
-      image: require('../images/profiles/malou.jpg')
+      image: require('../images/profiles/sven.jpg'),
+      match: true
   },
 ]
 
 const Cards2 = [
-  {name: '10', image: 'https://media.giphy.com/media/12b3E4U9aSndxC/giphy.gif'},
-  {name: '11', image: 'https://media4.giphy.com/media/6csVEPEmHWhWg/200.gif'},
-  {name: '12', image: 'https://media4.giphy.com/media/AA69fOAMCPa4o/200.gif'},
-  {name: '13', image: 'https://media.giphy.com/media/OVHFny0I7njuU/giphy.gif'},
+  {
+      name: `Nguyen`,
+      description: `Open for one day dates till all year round relationship.
+Loves dates with: karaoke  -  disco roller skating & bowling and at a later
+stage: occasional snowboarding & surfing depending on season - traveling.
+
+#bubbels #goodlife #luxurytravel #airplanes #weekendgetaways #2friendswithbenefits`,
+      image:require('../images/profiles/nguyen.jpg')
+  }
 ]
 
 const roomId = '2967829';
@@ -130,8 +171,14 @@ export default React.createClass({
       body: JSON.stringify(data)
     }).then(function(r) {console.log(r)});
   },
+  _isMatch (card) {
+      console.log(`${card}: is a match`);
+  },
   handleYup (card) {
     this._postCardVerdict(card, true);
+    if (card.match) {
+        this._isMatch(card);
+    }
   },
   handleNope (card) {
     this._postCardVerdict(card, false);
@@ -139,7 +186,7 @@ export default React.createClass({
   cardRemoved (index) {
     console.log(`The index is ${index}`);
 
-    let CARD_REFRESH_LIMIT = 3
+    let CARD_REFRESH_LIMIT = 23
 
     if (this.state.cards.length - index <= CARD_REFRESH_LIMIT + 1) {
       console.log(`There are only ${this.state.cards.length - index - 1} cards left.`);
@@ -158,7 +205,7 @@ export default React.createClass({
   },
   onBack(url) {
     this.props.navigator.pop();
-},
+  },
   render() {
     const rightButtonConfig = {
         title: 'back',
@@ -171,9 +218,13 @@ export default React.createClass({
 
     return (
         <View>
+            <LinearGradient
+                colors={['#fff', '#f7f7f7', '#fff']}
+                style={styles.linearGradient} />
             <NavigationBar
-            title={titleConfig}
-            leftButton={rightButtonConfig}/>
+                style={styles.matchNav}
+                title={titleConfig}
+                leftButton={rightButtonConfig}/>
             <SwipeCards
                 style={styles.cardStack}
                 cards={this.state.cards}
@@ -208,8 +259,8 @@ const styles = StyleSheet.create({
   },
   thumbnail: {
     flex: 1,
-    width: 300,
-    height: 400,
+    width: 330,
+    height: 370,
   },
   text: {
     fontSize: 20,
@@ -222,8 +273,47 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   matchNav: {
-      borderBottomColor: '#E3CCCD',
+      borderBottomColor: '#f7f7f7',
       borderBottomWidth: 1
+  },
+  modalView: {
+      paddingLeft: 20,
+      paddingRight: 20,
+      backgroundColor: 'rgba(255, 255, 255, 0.990)',
+      height: height
+  },
+  modalViewContent: {
+      flex: 1,
+      height: height,
+      paddingRight: 20,
+      paddingLeft: 20
+  },
+  closeModal: {
+      position: 'absolute',
+      top: 20,
+      left: 20
+  },
+  profileHeader: {
+      marginTop: 50,
+      flex: 1,
+      alignItems: 'center',
+  },
+  thumbnailModal: {
+      height: 100,
+      width: 100,
+      borderRadius: 50,
+      overflow: 'hidden'
+  },
+  profileName: {
+      fontSize: 20,
+      color: '#BF373B',
+      fontWeight: 'bold',
+      paddingTop: 20,
+  },
+  profileDescription: {
+    fontSize: 16,
+    color: '#444',
+    paddingTop: 20,
   }
 })
 // light pink: E3CCCD, pink: BF373B, off white: F7F7F7

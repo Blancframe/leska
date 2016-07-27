@@ -24,10 +24,9 @@ export default React.createClass({
     this.setState({size: {width: layout.width, height: layout.height}});
   },
 
-  onChannelPress(url) {
+  onSigninPress(url) {
     this.props.navigator.push({
-        name: 'tinder',
-        gestures: {}
+        name: 'welcome'
     });
   },
 
@@ -58,7 +57,7 @@ export default React.createClass({
                 <View style={styles.forgotContainer}>
                     <Text style={styles.greyFont}>Forgot Password</Text>
                 </View>
-                <TouchableHighlight onPress={() => this.onChannelPress()}>
+                <TouchableHighlight onPress={() => this.onSigninPress()}>
                     <View style={styles.signin}>
                             <Text style={styles.whiteFont}>Sign In</Text>
                     </View>
@@ -107,7 +106,7 @@ const styles = StyleSheet.create({
         height: height
     },
     header: {
-        justifyContent: 'center',
+
         alignItems: 'center',
         flex: .5,
         backgroundColor: 'transparent'
