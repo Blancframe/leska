@@ -171,6 +171,12 @@ export default React.createClass({
     }).then(function(r) {console.log(r)});
   },
   _isMatch (card) {
+      this.props.navigator.push({
+          name: 'match',
+          passProps: {
+              cardInfo: card
+          }
+      })
       console.log(`${card}: is a match`);
   },
   handleYup (card) {
