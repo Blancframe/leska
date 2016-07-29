@@ -237,8 +237,8 @@ Om in de Disney sferen te blijven: "If you can dream it, you can do it. Alway re
   },
 ]
 
-const roomId = '2967829';
-const apiToken = '';//'MeJ3H7SFz8gVp4exDO8YOFsKlGzfFvpTHxm3smNH';
+const roomId = '2978326';
+const apiToken = 'jDLfQZFXEkgVfiBCbTMu6ISAFfK7jjikZoX48LcA';
 
 export default React.createClass({
   getInitialState() {
