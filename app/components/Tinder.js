@@ -70,7 +70,9 @@ let NoMoreCards = React.createClass({
 const Cards = [
   {
       name: 'Anna',
-      description: `Nothing yet....`,
+      description: `No drama Myers-Briggs Catcher in the Rye whiskey.
+Having a few beers down to earth only looking for something casual adventures only looking for something casual, watching a movie if you think we have something in common road trips stepping outside your comfort zone hiking.
+Down to earth recently moved back foodie beach days food vegetarian.`,
       image: require('../images/profiles/anna.jpg'),
   },
   {
@@ -80,12 +82,16 @@ const Cards = [
   },
   {
       name: `Sezayi`,
-      description: `Nothing yet....`,
+      description: `Fascinates me passionate about loyal going to shows.
+Seeing as many countries as possible making lasagna from scratch feminism my dogs I'm a good listener, my eyes I'm a good listener crossfit my smartphone playing my guitar.
+Nothing too complicated seeing as many countries as possible feminism parallel parking adventures art school.`,
       image: require('../images/profiles/sezayi.jpg')
   },
   {
       name: `Astrid`,
-      description: `Nothing yet....`,
+      description: `Oxford comma tacos my eyes thinking about trying yoga.
+Short-term dating making people laugh everything but country music extrovert I'm just a regular guy, nothing too complicated if you like my profile exploring the city grab coffee or a drink medical school.
+If you're still reading this bikes everything but country music Family Guy you should message me grilling.`,
       image: require('../images/profiles/astrid.jpg')
   },
   {
@@ -110,6 +116,13 @@ x Malou`,
       image: require('../images/profiles/bart.jpg')
   },
   {
+      name: `Mark`,
+      description: `Introvert fixing my scooter Sunday funday down to earth.
+Really hoppy beers easy-going nothing too complicated strong and confident someone who shares my sense of humor, outdoor activities Oxford comma listening to music I enjoy mountain biking.
+I'm looking for going to the gym I hate lists coffee going to the gym bikes.`,
+      image: require('../images/profiles/mark.jpg')
+  },
+  {
       name: `Diwy`,
       description: `Lieve Aksel,
 
@@ -122,9 +135,18 @@ If there were to be a universal sound depicting peace, I would surely vote for t
   },
   {
       name: `Sven`,
-      description: `Nothing yet....sdds`,
+      description: `Jammer dat je weg gaat man! Ik ga onze (rook)pauzes en wandelingen langs de grachten terug van de CC missen.
+Ik hoop dat je naar rechts hebt geswiped, want we moeten sowieso nog eens wat gaan drinken!
+Succes met je nieuwe baan en je acteer carriere.`,
       image: require('../images/profiles/sven.jpg'),
       match: true
+  },
+  {
+      name: `Loek`,
+      description: `Outdoor activities having a few beers running shoes Kurosawa.
+My height and shoulders medical school my eyes playing my guitar my favorite word is,Oxford comma listening to music Breaking Bad open-minded my height and shoulders.
+Having a few beers really hoppy beers grilling beach days adventures Ethiopian.`,
+      image: require('../images/profiles/loek.jpg')
   },
 ]
 
@@ -137,7 +159,58 @@ stage: occasional snowboarding & surfing depending on season - traveling.
 
 #bubbels #goodlife #luxurytravel #airplanes #weekendgetaways #2friendswithbenefits`,
       image:require('../images/profiles/nguyen.jpg')
-  }
+  },
+  {
+      name: `Amber`,
+      description: `Nothing yet....`,
+      image: require('../images/profiles/amber.jpg')
+  },
+  {
+      name: `Thijs`,
+      description: `Vegen is leuk, maar je moet toch een keerje van de plee komen`,
+      image: require('../images/profiles/thijs.jpg')
+  },
+  {
+      name: `Eva`,
+      description: `Nothing yet....`,
+      image: require('../images/profiles/eva.jpg')
+  },
+  {
+      name: `Jhon`,
+      description: `Aksel ik heb zoveel respect voor jou dat je deze stapt neemt. Voor jezelf beginnen omdat je dan makkelijker kan schaken tussen al je acteerwerk
+Ik wens je veel succes en hoop je nog een keer tegen te komen.`,
+      image: require('../images/profiles/jhon.jpg')
+  },
+  {
+      name: `Ernst`,
+      description: `Nothing yet....`,
+      image: require('../images/profiles/ernst.jpg')
+  },
+  {
+      name: `Marleen`,
+      description: `Nothing yet....`,
+      image: require('../images/profiles/marleen.jpg')
+  },
+  {
+      name: `Floortje`,
+      description: `Nothing yet....`,
+      image: require('../images/profiles/floortje.jpg')
+  },
+  {
+      name: `Quinten`,
+      description: `Nothing yet....`,
+      image: require('../images/profiles/quinten.jpg')
+  },
+  {
+      name: `Jasmijn`,
+      description: `Nothing yet....`,
+      image: require('../images/profiles/jasmijn.jpg')
+  },
+  {
+      name: `Rene`,
+      description: `Team Nitro 4Ever!`,
+      image: require('../images/profiles/rene.jpg')
+  },
 ]
 
 const roomId = '2967829';
@@ -233,7 +306,7 @@ export default React.createClass({
             <SwipeCards
                 style={styles.cardStack}
                 cards={this.state.cards}
-                loop={true}
+                loop={false}
 
                 renderCard={(cardData) => <Card {...cardData} />}
                 renderNoMoreCards={() => <NoMoreCards />}
