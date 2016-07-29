@@ -224,13 +224,15 @@ export default React.createClass({
     }
   },
   _postCardVerdict (card, verdict) {
-    let imgPath = verdict ? `approved/{ card.name }.png` : `denied/{ card.name }.png`;
+    let cardName = card.name;
+    cardName = cardName.toLowerCase();
+
+    let imgPath = verdict ? `approved/${ cardName }.png` : `denied/${ cardName }.png`;
 
     let data = {
         notify: 'true',
-        color: verdict ? 'green' : 'red',
         message_format: 'html',
-        message: `<img src=\'https://s3-us-west-2.amazonaws.com/leskaimages/{ imgPath }\' />`
+        message: `<img src=\'https://s3-us-west-2.amazonaws.com/leskaimages/${ imgPath }\' />`
     };
     let url = `https://api.hipchat.com/v2/room/${ roomId }/notification?auth_token=${ apiToken }`
 
