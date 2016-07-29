@@ -141,7 +141,7 @@ stage: occasional snowboarding & surfing depending on season - traveling.
 ]
 
 const roomId = '2967829';
-const apiToken = '';//'MeJ3H7SFz8gVp4exDO8YOFsKlGzfFvpTHxm3smNH';
+const apiToken = 'MeJ3H7SFz8gVp4exDO8YOFsKlGzfFvpTHxm3smNH';
 
 export default React.createClass({
   getInitialState() {
@@ -151,13 +151,13 @@ export default React.createClass({
     }
   },
   _postCardVerdict (card, verdict) {
-    let gif = verdict ? 'AKZoD2SprDuMg' : 'n1Sg0gNQMYbwQ';
+    let imgPath = verdict ? `approved/{ card.name }.png` : `denied/{ card.name }.png`;
 
     let data = {
         notify: 'true',
         color: verdict ? 'green' : 'red',
         message_format: 'html',
-        message: `<p style='text-align: center'>Aksel to ${ card.name }...</p><img src=\'https://media.giphy.com/media/${ gif }/giphy.gif\' />`
+        message: `<img src=\'https://s3-us-west-2.amazonaws.com/leskaimages/{ imgPath }\' />`
     };
     let url = `https://api.hipchat.com/v2/room/${ roomId }/notification?auth_token=${ apiToken }`
 
