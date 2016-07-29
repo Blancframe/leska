@@ -297,7 +297,7 @@ export default React.createClass({
     };
 
     return (
-        <View>
+        <View style={{width: width, height: height}}>
             <LinearGradient
                 colors={['#fff', '#f7f7f7', '#fff']}
                 style={styles.linearGradient} />
@@ -305,22 +305,27 @@ export default React.createClass({
                 style={styles.matchNav}
                 title={titleConfig}
                 leftButton={rightButtonConfig}/>
-            <SwipeCards
-                style={styles.cardStack}
-                cards={this.state.cards}
-                loop={false}
+            <View style={styles.content}>
+              <SwipeCards
+                  style={styles.cardStack}
+                  cards={this.state.cards}
+                  loop={false}
 
-                renderCard={(cardData) => <Card {...cardData} />}
-                renderNoMoreCards={() => <NoMoreCards />}
-                showYup={true}
-                showNope={true}
+                  renderCard={(cardData) => <Card {...cardData} />}
+                  renderNoMoreCards={() => <NoMoreCards />}
+                  showYup={true}
+                  showNope={true}
 
-                handleYup={this.handleYup}
-                handleNope={this.handleNope}
-                nopeText="Hell No!"
-                yupText="Lekkah!"
-                cardRemoved={this.cardRemoved}
-            />
+                  handleYup={this.handleYup}
+                  handleNope={this.handleNope}
+                  nopeText="Hell No!"
+                  yupText="Lekkah!"
+                  cardRemoved={this.cardRemoved}
+              />
+          </View>
+          <View style={styles.logoWrapper} >
+            <Image style={styles.logo} source={require('./../images/logo/woordmerk.png')}></Image>
+          </View>
       </View>
     )
   }
@@ -340,6 +345,20 @@ const styles = StyleSheet.create({
     flex: 1,
     width: 330,
     height: 370,
+  },
+  logoWrapper: {
+    width: width,
+    position: 'absolute',
+    bottom: 50,
+    left: 0,
+    right: 0,
+    justifyContent: 'center',
+    alignItems: 'center',
+    flex: 1,
+  },
+  logo: {
+    // flex: 1
+
   },
   text: {
     fontSize: 20,
