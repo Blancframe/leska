@@ -68,7 +68,9 @@ Dus, daarom voor jou én je date (al dan niet via Leska opgeduikeld) dit cadeau 
 
 let NoMoreCards = React.createClass({
     keepPlaying() {
-        this.forceUpdate();
+         this.props.navigator.push({
+             name: 'welcome'
+         })
     },
 
     render() {
@@ -200,7 +202,7 @@ stage: occasional snowboarding & surfing depending on season - traveling.
   },
   {
       name: `Jhon`,
-      description: `Aksel ik heb zoveel respect voor jou dat je deze stapt neemt. Voor jezelf beginnen omdat je dan makkelijker kan schaken tussen al je acteerwerk
+      description: `Aksel ik heb zoveel respect voor jou dat je deze stapt neemt. Voor jezelf beginnen omdat je dan makkelijker kan schakelen tussen al je acteerwerk!
 Ik wens je veel succes en hoop je nog een keer tegen te komen.`,
       image: require('../images/profiles/jhon.jpg')
   },
