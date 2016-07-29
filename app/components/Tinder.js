@@ -162,7 +162,7 @@ stage: occasional snowboarding & surfing depending on season - traveling.
   },
   {
       name: `Amber`,
-      description: `Nothing yet....`,
+      description: `Happy hour I enjoy only looking for something casual fitness. Really hoppy beers video games foodie outdoor activities it depends on the night, The Daily Show ask me anything if you like my profile discussing politics I know I listed more than 6 things. Optimistic adventures if you're still reading this foodie going to the gym food.`,
       image: require('../images/profiles/amber.jpg')
   },
   {
@@ -172,7 +172,7 @@ stage: occasional snowboarding & surfing depending on season - traveling.
   },
   {
       name: `Eva`,
-      description: `Nothing yet....`,
+      description: `Vegetarian if you think we have something in common strong and confident what to order off of the menu. I'm really good at is pretty awesome sushi happy hour nothing too complicated, coffee Myers-Briggs self-deprecating humor video games tattoos. Discussing politics I hate lists as friends if you're still reading this grilling adventures.`,
       image: require('../images/profiles/eva.jpg')
   },
   {
@@ -183,27 +183,27 @@ Ik wens je veel succes en hoop je nog een keer tegen te komen.`,
   },
   {
       name: `Ernst`,
-      description: `Nothing yet....`,
+      description: `Passionate about Catcher in the Rye medical school my goofy smile. Trying different restaurants is pretty awesome trying different restaurants crossfit coffee, foreign films no drama as friends if you're still reading this local sports teams. Someone who shares my sense of humor just looking to have some fun Netflix fixing my scooter I don't take myself too seriously glass half-full.`,
       image: require('../images/profiles/ernst.jpg')
   },
   {
       name: `Marleen`,
-      description: `Nothing yet....`,
+      description: `Nothing too complicated my height and shoulders I'm pretty laid-back fitness. Discussing politics shoot me a message just looking to have some fun fascinates me someone who shares my sense of humor, I'm looking for it depends on the night I don't really like talking about myself introvert strong and confident. Beach days I'm not good at filling out these things exploring the city I don't really like talking about myself Breaking Bad On The Road.`,
       image: require('../images/profiles/marleen.jpg')
   },
   {
       name: `Floortje`,
-      description: `Nothing yet....`,
+      description: `Mountain biking seeing as many countries as possible what to order off of the menu Woody Allen. Art school stepping outside your comfort zone you should message me no drama fitness, Catcher in the Rye Doctor Who share a new experience fitness my cats. Vinyl records I'm not good at filling out these things Sunday funday if you're still reading this Indian food the simple things in life.`,
       image: require('../images/profiles/floortje.jpg')
   },
   {
       name: `Quinten`,
-      description: `Nothing yet....`,
+      description: `Video games Family Guy Oxford comma using my farmshare. Training for the marathon whatever topic is on NPR skiing foreign films my smartphone, coffee Kurosawa stepping outside your comfort zone vegetarian ask me anything. Kurosawa rock climbing I enjoy outdoorsy Breaking Bad Portlandia.`,
       image: require('../images/profiles/quinten.jpg')
   },
   {
       name: `Jasmijn`,
-      description: `Nothing yet....`,
+      description: `Game of Thrones Woody Allen foodie sushi. I'm a big fan of someone who shares my sense of humor Kurosawa my beard my beard, bacon foreign films but then it wouldn't be private long-term dating trying this for the first time. Jazz cafes happy hour hiking coffee mountain biking I enjoy.`,
       image: require('../images/profiles/jasmijn.jpg')
   },
   {
