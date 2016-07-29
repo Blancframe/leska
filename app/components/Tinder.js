@@ -67,24 +67,15 @@ En omdat jij de nieuwe Michiel Huisman bent heb je nog wel het een en ander bij 
 Dus, daarom voor jou én je date (al dan niet via Leska opgeduikeld) dit cadeau om op een zelf gekozen moment te verzilveren. `
 
 let NoMoreCards = React.createClass({
-    keepPlaying() {
-         this.props.navigator.push({
-             name: 'welcome'
-         })
-    },
-
     render() {
         return (
-          <View>
+          <View style={{width: width, height:height}}>
               <LinearGradient
                   colors={['#f7f7f7','#fff']}
                   style={styles.linearGradientNoCards} />
               <View style={styles.mainContainer}>
                 <Text style={styles.finishText}>{finishText}</Text>
                 <View style={styles.buttonContainer}>
-                <TouchableHighlight onPress={() => this.keepPlaying()}>
-                <Text style={styles.button}>Keep Playing</Text>
-                </TouchableHighlight>
                 </View>
               </View>
           </View>
@@ -240,7 +231,7 @@ Om in de Disney sferen te blijven: "If you can dream it, you can do it. Alway re
 ]
 
 const roomId = '2978326';
-const apiToken = 'jDLfQZFXEkgVfiBCbTMu6ISAFfK7jjikZoX48LcA';
+const apiToken = '';//'jDLfQZFXEkgVfiBCbTMu6ISAFfK7jjikZoX48LcA';
 
 export default React.createClass({
   getInitialState() {
