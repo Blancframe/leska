@@ -9,11 +9,13 @@ import {
 import Carousel from './components/Carousel';
 import Welcome from './components/Welcome';
 import Tinder from './components/Tinder';
+import Match from './components/Match';
 
 const ROUTES = {
     splashscreen: Carousel,
     welcome: Welcome,
-    tinder: Tinder
+    tinder: Tinder,
+    match: Match
 }
 
 export default class Leska extends Component {
