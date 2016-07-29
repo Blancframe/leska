@@ -57,14 +57,37 @@ let Card = React.createClass({
   }
 });
 
+let finishText = `Jaaaaa, it's a wrap!
+Je bent erdoor heen.
+
+Alle chica's en semi chica zijn de revue gepasseerd.
+Binnenkort zullen de eerste dates plaatsvinden.
+
+En omdat jij de nieuwe Michiel Huisman bent heb je nog wel het een en ander bij te leren.
+Dus, daarom voor jou én je date (al dan niet via Leska opgeduikeld) dit cadeau om op een zelf gekozen moment te verzilveren. `
+
 let NoMoreCards = React.createClass({
-  render() {
-    return (
-      <View style={styles.noMoreCards}>
-        <Text>No more cards</Text>
-      </View>
-    )
-  }
+    keepPlaying() {
+        this.forceUpdate();
+    },
+
+    render() {
+        return (
+          <View>
+              <LinearGradient
+                  colors={['#f7f7f7','#fff']}
+                  style={styles.linearGradientNoCards} />
+              <View style={styles.mainContainer}>
+                <Text style={styles.finishText}>{finishText}</Text>
+                <View style={styles.buttonContainer}>
+                <TouchableHighlight onPress={() => this.keepPlaying()}>
+                <Text style={styles.button}>Keep Playing</Text>
+                </TouchableHighlight>
+                </View>
+              </View>
+          </View>
+        )
+    }
 })
 
 const Cards = [
@@ -193,7 +216,8 @@ Ik wens je veel succes en hoop je nog een keer tegen te komen.`,
   },
   {
       name: `Floortje`,
-      description: `Mountain biking seeing as many countries as possible what to order off of the menu Woody Allen. Art school stepping outside your comfort zone you should message me no drama fitness, Catcher in the Rye Doctor Who share a new experience fitness my cats. Vinyl records I'm not good at filling out these things Sunday funday if you're still reading this Indian food the simple things in life.`,
+      description: `Aks, heel jammer dat ons gaat verlaten, maar super mooi hoe jij je acteerdroom najaagt!
+Om in de Disney sferen te blijven: "If you can dream it, you can do it. Alway remember that this whole thing was started with a dream and a mouse"`,
       image: require('../images/profiles/floortje.jpg')
   },
   {
@@ -214,7 +238,7 @@ Ik wens je veel succes en hoop je nog een keer tegen te komen.`,
 ]
 
 const roomId = '2967829';
-const apiToken = 'MeJ3H7SFz8gVp4exDO8YOFsKlGzfFvpTHxm3smNH';
+const apiToken = '';//'MeJ3H7SFz8gVp4exDO8YOFsKlGzfFvpTHxm3smNH';
 
 export default React.createClass({
   getInitialState() {
@@ -349,9 +373,28 @@ const styles = StyleSheet.create({
     color: '#BF373B'
   },
   noMoreCards: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
+    width: width,
+    height: height
+  },
+  linearGradientNoCards: {
+      width: width,
+      height:height
+  },
+  finishText: {
+    fontSize: 20,
+    fontFamily: 'Helvetica'
+  },
+  mainContainer: {
+      position: 'absolute',
+      flex: 1,
+      justifyContent: 'center',
+      alignItems: 'center',
+      top: 70,
+      right: 0,
+      left: 0,
+      width: width,
+      paddingRight: 40,
+      paddingLeft: 40
   },
   matchNav: {
       borderBottomColor: '#f7f7f7',
@@ -395,6 +438,25 @@ const styles = StyleSheet.create({
     fontSize: 16,
     color: '#444',
     paddingTop: 20,
-  }
+},
+    buttonContainer: {
+        flex: 1,
+        flexDirection: 'column',
+        justifyContent: 'space-between',
+        marginTop: 20
+    },
+    button: {
+        backgroundColor: 'transparent',// light pink: E3CCCD, pink: BF373B, off white: F7F7F7
+        borderWidth: 1,
+        borderColor: '#BF373B',
+        fontFamily: 'HelveticaNeue-Light',
+        color: '#BF373B',
+        textAlign: 'center',
+        lineHeight: 26,
+        fontSize: 16,
+        padding: 20,
+        width: width - 80,
+        marginTop: 20
+    }
 })
 // light pink: E3CCCD, pink: BF373B, off white: F7F7F7
