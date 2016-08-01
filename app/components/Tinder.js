@@ -85,6 +85,13 @@ let NoMoreCards = React.createClass({
 
 const Cards = [
   {
+      name: 'Michelle',
+      description: `No drama Myers-Briggs Catcher in the Rye whiskey.
+Having a few beers down to earth only looking for something casual adventures only looking for something casual, watching a movie if you think we have something in common road trips stepping outside your comfort zone hiking.
+Down to earth recently moved back foodie beach days food vegetarian.`,
+      image: require('../images/profiles/michelle.jpg'),
+  },
+  {
       name: 'Anna',
       description: `No drama Myers-Briggs Catcher in the Rye whiskey.
 Having a few beers down to earth only looking for something casual adventures only looking for something casual, watching a movie if you think we have something in common road trips stepping outside your comfort zone hiking.
@@ -164,6 +171,11 @@ My height and shoulders medical school my eyes playing my guitar my favorite wor
 Having a few beers really hoppy beers grilling beach days adventures Ethiopian.`,
       image: require('../images/profiles/loek.jpg')
   },
+  {
+      name: `Nina`,
+      description: `Vegetarian if you think we have something in common strong and confident what to order off of the menu. I'm really good at is pretty awesome sushi happy hour nothing too complicated, coffee Myers-Briggs self-deprecating humor video games tattoos. Discussing politics I hate lists as friends if you're still reading this grilling adventures.`,
+      image: require('../images/profiles/nina.jpg')
+  },
 ]
 
 const Cards2 = [
@@ -227,11 +239,11 @@ Om in de Disney sferen te blijven: "If you can dream it, you can do it. Alway re
       name: `Rene`,
       description: `Team Nitro 4Ever!`,
       image: require('../images/profiles/rene.jpg')
-  },
+  }
 ]
 
-const roomId = '2978326';
-const apiToken = '';//'jDLfQZFXEkgVfiBCbTMu6ISAFfK7jjikZoX48LcA';
+const roomId = '2978818';
+const apiToken = 'Nl2EhLSP6k4bFMIgE2HT6v1UxuE9Mr1ZU2gfB9eO';
 
 export default React.createClass({
   getInitialState() {
@@ -341,7 +353,7 @@ export default React.createClass({
               />
           </View>
           <View style={styles.logoWrapper} >
-            <Image style={styles.logo} source={require('./../images/logo/woordmerk.png')}></Image>
+            <Image style={styles.logo} source={require('./../images/logo/woordmerk-small.png')}></Image>
           </View>
       </View>
     )
@@ -356,17 +368,17 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     backgroundColor: '#f7f7f7',
     elevation: 1,
-    marginTop: 50
+    marginTop: 20
   },
   thumbnail: {
     flex: 1,
-    width: 330,
+    width: 300,
     height: 370,
   },
   logoWrapper: {
     width: width,
     position: 'absolute',
-    bottom: 50,
+    bottom: 20,
     left: 0,
     right: 0,
     justifyContent: 'center',
@@ -374,8 +386,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   logo: {
-    // flex: 1
-
+    width: 75
   },
   text: {
     fontSize: 20,
