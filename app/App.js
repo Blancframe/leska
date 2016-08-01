@@ -9,11 +9,13 @@ import {
 import Carousel from './components/Carousel';
 import Welcome from './components/Welcome';
 import Tinder from './components/Tinder';
+import Match from './components/Match';
 
 const ROUTES = {
     splashscreen: Carousel,
     welcome: Welcome,
-    tinder: Tinder
+    tinder: Tinder,
+    match: Match
 }
 
 export default class Leska extends Component {
@@ -39,9 +41,6 @@ export default class Leska extends Component {
 
 const styles = StyleSheet.create({
     container: {
-      flex: 1,
-      flexDirection: 'row',
-      backgroundColor: '#F7F7F7',
-      paddingTop: 20,
+      backgroundColor: '#FFF',
     }
 });

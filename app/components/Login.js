@@ -15,7 +15,8 @@ let {width, height} = Dimensions.get('window');
 export default React.createClass({
   getInitialState: function() {
     return {
-      size: {width: width, height: height}
+      size: {width: width, height: height},
+      userName: ''
     };
   },
 
@@ -24,9 +25,12 @@ export default React.createClass({
     this.setState({size: {width: layout.width, height: layout.height}});
   },
 
-  onSigninPress(url) {
+  onSigninPress(currentUsername) {
     this.props.navigator.push({
-        name: 'welcome'
+        name: 'welcome',
+        passProps: {
+            username: currentUsername
+        }
     });
   },
 
@@ -42,6 +46,7 @@ export default React.createClass({
                         placeholder="Username"
                         placeholderTextColor="#FFF"
                         value={this.state.username}
+                        onChangeText={(text) => this.setState({userName: text})}
                     />
                 </View>
                 <View style={styles.inputContainer}>
@@ -57,7 +62,7 @@ export default React.createClass({
                 <View style={styles.forgotContainer}>
                     <Text style={styles.greyFont}>Forgot Password</Text>
                 </View>
-                <TouchableHighlight onPress={() => this.onSigninPress()}>
+                <TouchableHighlight onPress={() => this.onSigninPress(this.state.userName)}>
                     <View style={styles.signin}>
                             <Text style={styles.whiteFont}>Sign In</Text>
                     </View>
